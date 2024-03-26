@@ -1,0 +1,62 @@
+paths:
+  /api/products:
+    get:
+      tags:
+        - Produts
+      summary: Este end Point permite acceder a la lista de productos
+      description: Lista de productos 
+      responses:
+        "200":
+          description: succefull operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Product'
+        "500":
+          description: 'Error interno del servidor, usualmente generado por una query defectuosa o un fallo de conexion con la base de datos'
+components:
+  schemas:
+    Product:
+      type: object
+      properties:
+        title:
+          type: string
+          required: true
+        description:
+          type: string
+          required: true
+        code: 
+          type: string
+          required: true
+          unique: true
+        price:
+          type: number
+          required: true
+        status:
+          type: boolean
+          required: true
+        stock:
+          type: number
+          required: true
+        category: 
+          type: string
+          required: true
+          defaault: 'No Catgory'
+        thumbnail: 
+          type: array
+        owner:
+          type: string
+          required: true,
+          default: 'admin'
+      example:
+        _id: ObjectId('657f088bbf51d6bc5c0353b3')
+        title: title 1 Update
+        description: description 1 Update
+        price: 123456
+        thumbnail: []
+        code: 1111
+        stock: 123
+        category: category 1
+        status: true
