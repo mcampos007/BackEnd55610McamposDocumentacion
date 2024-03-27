@@ -6,3 +6,4 @@ src/config/.env.production
 .env.zip
 src/logs/access.log
 olds
+src/logs
